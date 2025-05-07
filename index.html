@@ -18,7 +18,6 @@
             --font-body: 'Montserrat', sans-serif;
         }
 
-        /* Estilos para diferentes temas */
         body.classic {
             --primary-color: #ff91a4;
             --secondary-color: #ffc2d1;
@@ -281,7 +280,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* Animaciones */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -360,13 +358,11 @@
 
     <script id="app-script">
         document.addEventListener('DOMContentLoaded', function() {
-            // Selector de estilo
             const styleSelector = document.getElementById('style');
             styleSelector.addEventListener('change', function() {
                 document.body.className = this.value;
             });
 
-            // Manejador del formulario
             const form = document.getElementById('mother-day-form');
             const formCard = document.querySelector('.form-card');
             const loadingElement = document.querySelector('.loading');
@@ -375,35 +371,28 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Mostrar pantalla de carga
                 form.style.display = 'none';
                 loadingElement.style.display = 'block';
                 
-                // Simulación de procesamiento (en un proyecto real, aquí iría la llamada a la API)
                 setTimeout(function() {
                     const motherName = document.getElementById('mother-name').value;
                     const message = document.getElementById('message').value || 'Gracias por ser la mejor madre del mundo. ¡Te quiero mucho!';
                     
-                    // Ocultar carga y mostrar resultado
                     loadingElement.style.display = 'none';
                     resultElement.style.display = 'block';
                     
-                    // Completar resultado con datos del formulario
                     document.getElementById('result-name').textContent = motherName;
                     document.getElementById('result-message').textContent = message;
                     
-                    // En un escenario real, aquí recibiríamos una imagen personalizada de la API
                 }, 2000);
             });
             
-            // Botón para reiniciar el formulario
             document.getElementById('reset-form').addEventListener('click', function() {
                 resultElement.style.display = 'none';
                 form.reset();
                 form.style.display = 'block';
             });
             
-            // Crear animaciones de flores y corazones de forma dinámica
             const gallerySection = document.querySelector('.gallery');
             const symbols = ['🌸', '❤️', '🌹', '💕', '🌺', '💖', '🌷', '💗'];
             
