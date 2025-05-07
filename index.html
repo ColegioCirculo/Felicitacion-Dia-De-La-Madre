@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día de las Madres</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&family=Parisienne&display=swap" rel="stylesheet">
+    <style id="app-style">
+        :root {
+            --primary-color: #ff91a4;
+            --secondary-color: #ffc2d1;
+            --accent-color: #ff5e8f;
+            --text-color: #2c2c2c;
+            --background-color: #fff5f7;
+            --font-display: 'Dancing Script', cursive;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        /* Estilos para diferentes temas */
+        body.classic {
+            --primary-color: #ff91a4;
+            --secondary-color: #ffc2d1;
+            --accent-color: #ff5e8f;
+            --text-color: #2c2c2c;
+            --background-color: #fff5f7;
+            --font-display: 'Parisienne', cursive;
+        }
+
+        body.modern {
+            --primary-color: #9d8189;
+            --secondary-color: #e8e8e8;
+            --accent-color: #d8b4a0;
+            --text-color: #444444;
+            --background-color: #f8f9fa;
+            --font-display: 'Montserrat', sans-serif;
+        }
+
+        body.colorful {
+            --primary-color: #ff5722;
+            --secondary-color: #ffeb3b;
+            --accent-color: #e91e63;
+            --text-color: #212121;
+            --background-color: #f9fbe7;
+            --font-display: 'Dancing Script', cursive;
+        }
+
+        body.artistic {
+            --primary-color: #673ab7;
+            --secondary-color: #9c27b0;
+            --accent-color: #3f51b5;
+            --text-color: #f3e5f5;
+            --background-color: #311b92;
+            --font-display: 'Parisienne', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: all 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column-reverse;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .form-section {
+            flex: 1;
+            animation: slideInLeft 1s ease-in-out;
+        }
+
+        .gallery-section {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            min-height: 300px;
+            animation: slideInRight 1s ease-in-out;
+        }
+
+        .form-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-body);
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(var(--accent-color), 0.1);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .style-selector {
+            margin-top: 20px;
+        }
+
+        .gallery {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+        }
+
+        .flower, .heart {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--primary-color);
+            opacity: 0.8;
+            animation-name: float;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .gallery-image {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.03);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .result {
+            display: none;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .result h2 {
+            font-family: var(--font-display);
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .result p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .result-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="classic">
+    <div class="container">
+        <header>
+            <h1 class="animate__animated animate__fadeIn">Feliz Día de las Madres</h1>
+            <p class="subtitle animate__animated animate__fadeIn animate__delay-1s">Crea una hermosa tarjeta para esa persona tan especial</p>
+        </header>
+
+        <div class="main-content">
+            <section class="form-section">
+                <div class="form-card">
+                    <form id="mother-day-form">
+                        <div class="form-group">
+                            <label for="mother-name">Nombre de tu madre</label>
+                            <input type="text" id="mother-name" required placeholder="Escribe su nombre...">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje personalizado (opcional)</label>
+                            <textarea id="message" placeholder="Escribe un mensaje especial..."></textarea>
+                        </div>
+                        <div class="form-group style-selector">
+                            <label for="style">Estilo Visual</label>
+                            <select id="style">
+                                <option value="classic">Clásico</option>
+                                <option value="modern">Moderno-Minimalista</option>
+                                <option value="colorful">Colorido</option>
+                                <option value="artistic">Artístico</option>
+                            </select>
+                        </div>
+                        <button type="submit">Crear Felicitación</button>
+                    </form>
+
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Creando tu mensaje personalizado...</p>
+                    </div>
+
+                    <div class="result">
+                        <h2>¡Felicitación para <span id="result-name"></span>!</h2>
+                        <img src="https://cdn.pixabay.com/photo/2018/02/13/23/41/nature-3151869_1280.jpg" alt="Flores para mamá" class="result-image">
+                        <p id="result-message"></p>
+                        <button id="reset-form">Enviar otra felicitación</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery-section">
+                <div class="gallery">
+                    <img src="Flores.png" alt="Flores para mamá" class="gallery-image">
+                    <div class="flower" style="top: 10%; left: 20%; animation-duration: 5s;"><i class="fas fa-flower"></i>🌸</div>
+                    <div class="heart" style="top: 30%; right: 15%; animation-duration: 7s;"><i class="fas fa-heart"></i>❤️</div>
+                    <div class="flower" style="bottom: 20%; left: 30%; animation-duration: 6s;"><i class="fas fa-flower"></i>🌺</div>
+                    <div class="heart" style="bottom: 40%; right: 25%; animation-duration: 8s;"><i class="fas fa-heart"></i>💕</div>
+                    <div class="flower" style="top: 50%; left: 10%; animation-duration: 9s;"><i class="fas fa-flower"></i>🌷</div>
+                    <div class="heart" style="top: 70%; right: 5%; animation-duration: 6s;"><i class="fas fa-heart"></i>❤️</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script id="app-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Selector de estilo
+            const styleSelector = document.getElementById('style');
+            styleSelector.addEventListener('change', function() {
+                document.body.className = this.value;
+            });
+
+            // Manejador del formulario
+            const form = document.getElementById('mother-day-form');
+            const formCard = document.querySelector('.form-card');
+            const loadingElement = document.querySelector('.loading');
+            const resultElement = document.querySelector('.result');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Mostrar pantalla de carga
+                form.style.display = 'none';
+                loadingElement.style.display = 'block';
+                
+                // Simulación de procesamiento (en un proyecto real, aquí iría la llamada a la API)
+                setTimeout(function() {
+                    const motherName = document.getElementById('mother-name').value;
+                    const message = document.getElementById('message').value || 'Gracias por ser la mejor madre del mundo. ¡Te quiero mucho!';
+                    
+                    // Ocultar carga y mostrar resultado
+                    loadingElement.style.display = 'none';
+                    resultElement.style.display = 'block';
+                    
+                    // Completar resultado con datos del formulario
+                    document.getElementById('result-name').textContent = motherName;
+                    document.getElementById('result-message').textContent = message;
+                    
+                    // En un escenario real, aquí recibiríamos una imagen personalizada de la API
+                }, 2000);
+            });
+            
+            // Botón para reiniciar el formulario
+            document.getElementById('reset-form').addEventListener('click', function() {
+                resultElement.style.display = 'none';
+                form.reset();
+                form.style.display = 'block';
+            });
+            
+            // Crear animaciones de flores y corazones de forma dinámica
+            const gallerySection = document.querySelector('.gallery');
+            const symbols = ['🌸', '❤️', '🌹', '💕', '🌺', '💖', '🌷', '💗'];
+            
+            for (let i = 0; i < 15; i++) {
+                const element = document.createElement('div');
+                const isFlower = Math.random() > 0.5;
+                element.className = isFlower ? 'flower' : 'heart';
+                element.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                
+                element.style.top = `${Math.random() * 100}%`;
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.animationDuration = `${5 + Math.random() * 7}s`;
+                element.style.animationDelay = `${Math.random() * 5}s`;
+                element.style.fontSize = `${1 + Math.random() * 1.5}rem`;
+                element.style.opacity = `${0.6 + Math.random() * 0.4}`;
+                
+                gallerySection.appendChild(element);
+            }
+        });
+    </script>
+</body>
+</html>
